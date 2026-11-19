@@ -1,111 +1,85 @@
 ---
-import { siteConfig } from '@/lib/site-config'
+import CheckIcon from '@/components/CheckIcon.astro'
+import { prices, whatsappLink } from '@/lib/site-config'
 
-const preco = siteConfig.SITE_PRICE
-
-const itensIncluidos = [
-  'Até 5 páginas (início, sobre, serviços, contato e mais uma) — ou uma página única de conversão, se for pra anúncio',
-  'Textos escritos a partir do que você me contar; você revisa, eu ajusto',
-  'Funciona no celular — é onde 8 em cada 10 clientes vão abrir',
-  'Botão de WhatsApp em toda página, e formulário de contato que chega no seu e-mail',
-  'Google: títulos, descrições e velocidade prontos pra indexar; cadastro no Perfil de Empresa do Google se você ainda não tiver',
-  'Domínio .com.br incluso, registrado no seu nome — é seu, não meu',
-  'Você aprende a editar textos e fotos em 15 minutos, sem depender de mim',
-]
+const recursosComuns = ['Botão de WhatsApp', 'Formulário de contato', 'SEO técnico básico']
+const pacotes = [
+  {
+    nome: 'Site Essencial',
+    preco: prices.essential,
+    itens: ['Até 3 páginas', 'Design responsivo com layout personalizado simples', ...recursosComuns, 'Uma rodada de ajustes'],
+    botao: 'Quero o Essencial',
+    interesse: 'essential',
+    destaque: false,
+  },
+  {
+    nome: 'Site Profissional',
+    preco: prices.professional,
+    itens: [
+      'Até 5 páginas',
+      'Design responsivo e personalizado',
+      'Estrutura de navegação organizada',
+      ...recursosComuns,
+      'Apoio na organização do conteúdo fornecido pelo cliente',
+      'Até duas rodadas de ajustes',
+    ],
+    botao: 'Quero o Profissional',
+    interesse: 'professional',
+    destaque: true,
+  },
+] as const
 
 const extras = [
   { emoji: '📝', titulo: 'Blog pronto pra publicar', preco: '+ R$ 497' },
   { emoji: '🛒', titulo: 'Loja virtual, login, sistema, 10+ páginas', preco: '+ R$ 997' },
-  { emoji: '🧩', titulo: 'SaaS, integrações e projetos maiores', preco: 'a consultar no WhatsApp' },
-]
-
-const condicoes = [
-  { label: 'Pagamento', valor: 'metade pra começar, metade na entrega' },
-  { label: 'Hospedagem + domínio .com.br', valor: '1 ano grátis' },
+  { emoji: '🧩', titulo: 'SaaS, integrações e projetos maiores', preco: 'A consultar no WhatsApp' },
 ]
 ---
 
 <section id="escopo" class="py-20 md:py-28" aria-labelledby="escopo-heading">
   <div class="mx-auto max-w-[1200px] px-6">
     <h2 id="escopo-heading" class="reveal text-2xl md:text-3xl font-bold tracking-tight">
-      O que está incluso nos {preco}
+      Seu site profissional, do seu jeito.
     </h2>
+    <p class="reveal mt-3 text-sm text-muted-foreground">
+      Escolha a solução ideal para apresentar seu negócio com profissionalismo.
+    </p>
 
-    <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
-      <div class="reveal md:col-span-5 md:sticky md:top-24 md:self-start">
-        <div class="relative overflow-hidden rounded-lg border border-highlight/30 bg-card p-6 md:p-8">
-          <div class="absolute inset-0 bg-dot-grid opacity-60 pointer-events-none" aria-hidden="true"></div>
-
-          <div class="relative">
-            <p class="text-xs text-muted-foreground">a partir de</p>
-            <div class="mt-2 text-5xl md:text-6xl font-bold tracking-tight text-highlight">{preco}</div>
-            <p class="mt-4 text-xs text-muted-foreground leading-relaxed">
-              Hospedagem + domínio .com.br grátis no primeiro ano. Extras com preço fechado ao lado.
-            </p>
-
-            <dl class="mt-6 divide-y divide-border/50 border-y border-border/50">
-              {
-                condicoes.map((c) => (
-                  <div class="flex items-baseline justify-between gap-4 py-3">
-                    <dt class="text-xs text-muted-foreground">{c.label}</dt>
-                    <dd class="text-xs font-semibold text-right">{c.valor}</dd>
-                  </div>
-                ))
-              }
-            </dl>
-
-            <a
-              href="#contato"
-              class="cta-ring mt-8 flex w-full items-center justify-center rounded-md bg-highlight py-3 text-sm font-semibold text-highlight-foreground transition-transform hover:scale-[1.02]"
-            >
-              Quero meu site 🚀
-            </a>
-
-            <p class="mt-6 border-l-2 border-highlight pl-4 text-xs text-muted-foreground leading-relaxed">
-              Se em 48 horas a primeira versão não te agradar, você não paga a segunda metade e fica com o que viu. Sem discussão.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="md:col-span-7">
-        <ul class="divide-y divide-border/50">
-          {
-            itensIncluidos.map((item) => (
-              <li class="reveal flex items-start gap-4 py-4 text-sm leading-relaxed text-muted-foreground first:pt-0">
-                <svg
-                  class="mt-1 h-4 w-4 shrink-0 text-highlight"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                {item}
-              </li>
-            ))
-          }
-        </ul>
-
-        <div class="mt-12 border-t border-border/50 pt-8">
-          <h3 class="text-sm font-semibold">Precisa de mais? Preço fechado também</h3>
-          <ul class="mt-4 divide-y divide-border/50">
-            {
-              extras.map((e) => (
-                <li class="flex items-baseline justify-between gap-4 py-3 text-sm">
-                  <span class="text-muted-foreground">{e.emoji} {e.titulo}</span>
-                  <span class="shrink-0 text-right font-semibold">{e.preco}</span>
-                </li>
-              ))
-            }
+    <div class="reveal-stagger mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+      {pacotes.map((pacote) => (
+        <article class:list={['reveal flex flex-col rounded-lg border bg-card p-6 md:p-8', pacote.destaque ? 'border-highlight/30' : 'border-border/50']}>
+          <h3 class="text-lg font-semibold">{pacote.nome}</h3>
+          <p class="mt-4 text-xs text-muted-foreground">A partir de</p>
+          <p class="mt-1 text-3xl font-bold tracking-tight text-highlight md:text-4xl">{pacote.preco}</p>
+          <ul class="mt-6 space-y-3">
+            {pacote.itens.map((item) => (
+              <li class="flex items-start gap-2 text-sm text-muted-foreground"><CheckIcon />{item}</li>
+            ))}
           </ul>
-        </div>
-      </div>
+          <div class="mt-auto pt-8">
+            <a href={whatsappLink(pacote.interesse)} class="cta-ring flex min-h-[44px] w-full items-center justify-center rounded-md bg-highlight px-4 py-3 text-center text-sm font-semibold text-highlight-foreground hover:opacity-90">
+              {pacote.botao}
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="reveal mt-6 max-w-3xl text-xs leading-relaxed text-muted-foreground">
+      Os preços são iniciais e dependem do escopo. O pagamento é feito em duas etapas, metade no início e metade na entrega.
+      Domínio, hospedagem, manutenção recorrente e serviços de terceiros podem ser cobrados à parte.
+    </p>
+
+    <div class="reveal mt-12 border-t border-border/50 pt-8">
+      <h3 class="text-sm font-semibold">Opcionais</h3>
+      <ul class="mt-4 divide-y divide-border/50">
+        {extras.map((extra) => (
+          <li class="flex flex-col gap-1 py-3 text-sm sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+            <span class="text-muted-foreground"><span aria-hidden="true">{extra.emoji}</span> {extra.titulo}</span>
+            <span class="font-semibold">{extra.preco}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </div>
 </section>

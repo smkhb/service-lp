@@ -1,4 +1,6 @@
 ---
+import { whatsappLink } from '@/lib/site-config'
+
 const palavras = ['Transformo', 'ideias', 'em']
 const palavrasDestaque = ['soluções', 'digitais.']
 const exemplos = [
@@ -43,21 +45,21 @@ const exemplos = [
       }
     </h1>
     <p class="reveal mx-auto mt-6 max-w-xl text-sm sm:text-base leading-relaxed text-muted-foreground">
-      Sites e landing pages para profissionais e pequenos negócios que precisam
-      de uma presença online clara e honesta.
+      Crio sites profissionais, landing pages e soluções inteligentes para ajudar
+      pequenos negócios a conquistar clientes, automatizar processos e crescer no digital.
     </p>
     <div class="reveal mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
       <a
-        href="#contato"
+        href={whatsappLink('site')}
         class="cta-ring inline-flex h-[52px] items-center justify-center rounded-lg px-6 text-sm sm:text-base font-semibold transition-transform bg-highlight text-highlight-foreground hover:scale-[1.03]"
       >
         Quero meu site 🚀
       </a>
       <a
-        href="#processo"
+        href="#servicos"
         class="inline-flex h-[52px] items-center justify-center rounded-lg px-6 text-sm sm:text-base font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
       >
-        Conhecer o processo ↘
+        Explorar serviços ↘
       </a>
     </div>
     <div
