@@ -1,0 +1,19 @@
+# Dependências
+node_modules/
+
+# Build e artefatos gerados
+dist/
+.astro/
+
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+.vscode/
+.idea/
