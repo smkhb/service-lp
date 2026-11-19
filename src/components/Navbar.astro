@@ -1,0 +1,46 @@
+---
+import { siteConfig } from '@/lib/site-config'
+
+const navLinks = [
+  { label: 'Processo', href: '#processo' },
+  { label: 'Serviços', href: '#servicos' },
+  { label: 'Sobre', href: '#sobre' },
+  { label: 'Contato', href: '#contato' },
+]
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50 border-b border-border/50 backdrop-blur-md bg-background/80"
+  role="navigation"
+  aria-label="Navegação principal"
+>
+  <div class="mx-auto max-w-[1200px] px-6 flex items-center justify-between h-14">
+    <a
+      href="#"
+      class="text-sm font-semibold tracking-tight text-foreground hover:opacity-80 transition-opacity"
+      aria-label="Início"
+    >
+      {siteConfig.name}
+    </a>
+    <ul class="hidden md:flex items-center gap-6">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <a
+      href="#contato"
+      class="text-xs px-4 py-2 rounded-md bg-highlight text-highlight-foreground hover:opacity-90 transition-opacity font-semibold"
+    >
+      Quero meu site 🚀
+    </a>
+  </div>
+</nav>

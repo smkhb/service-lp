@@ -1,0 +1,24 @@
+---
+import { siteConfig } from '@/lib/site-config'
+
+const CURRENT_YEAR = new Date().getFullYear()
+---
+
+<footer class="border-t border-border/50 py-8" role="contentinfo">
+  <div class="mx-auto max-w-[1200px] px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <span class="text-xs text-muted-foreground">
+      © {CURRENT_YEAR} {siteConfig.name}. Todos os direitos reservados.
+    </span>
+    <div class="flex items-center gap-6">
+      <a href="#" class="text-xs text-muted-foreground hover:text-foreground transition-colors">
+        Início
+      </a>
+      <a href="#processo" class="text-xs text-muted-foreground hover:text-foreground transition-colors">
+        Processo
+      </a>
+      <a href="#contato" class="text-xs text-muted-foreground hover:text-foreground transition-colors">
+        Contato
+      </a>
+    </div>
+  </div>
+</footer>

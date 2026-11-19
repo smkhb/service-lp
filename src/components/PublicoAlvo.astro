@@ -1,0 +1,43 @@
+---
+const perfis = [
+  {
+    emoji: '🧑‍💼',
+    titulo: 'Profissionais autônomos',
+    descricao: 'Que precisam mostrar o que fazem de forma clara para seus clientes.',
+  },
+  {
+    emoji: '🏪',
+    titulo: 'Pequenos negócios locais',
+    descricao: 'Que querem uma página funcional sem complicação.',
+  },
+  {
+    emoji: '🛠️',
+    titulo: 'Prestadores de serviço',
+    descricao: 'Que precisam de um ponto de contato profissional na internet.',
+  },
+]
+---
+
+<section class="py-20 md:py-28 bg-card" aria-labelledby="publico-heading">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <h2 id="publico-heading" class="reveal text-2xl md:text-3xl font-bold tracking-tight">
+      Para quem é
+    </h2>
+    <p class="reveal mt-3 text-sm text-muted-foreground max-w-lg">
+      Se você se encaixa em um desses perfis, posso te ajudar.
+    </p>
+    <div class="reveal-stagger mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        perfis.map((p) => (
+          <div class="reveal rounded-lg border border-border/50 bg-background p-6 hover:border-border transition-colors">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-highlight/10 text-2xl mb-4" aria-hidden="true">
+              {p.emoji}
+            </div>
+            <h3 class="text-sm font-semibold mb-2">{p.titulo}</h3>
+            <p class="text-xs text-muted-foreground leading-relaxed">{p.descricao}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

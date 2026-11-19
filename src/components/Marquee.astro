@@ -1,0 +1,35 @@
+---
+const itens = [
+  '📱 Funciona no celular',
+  '💬 Botão de WhatsApp em toda página',
+  '🔍 Pronto pra indexar no Google',
+  '🌐 Domínio .com.br incluso',
+  '✏️ Você edita sem depender de mim',
+  '⚡ Carregamento rápido',
+  '📝 Textos escritos a partir do que você conta',
+]
+---
+
+<div class="border-y border-border/50 bg-card py-4 overflow-hidden">
+  <div class="marquee-track">
+    {
+      itens.map((item) => (
+        <span class="flex items-center gap-3 px-6 text-xs text-muted-foreground whitespace-nowrap">
+          {item}
+          <span class="text-highlight">✦</span>
+        </span>
+      ))
+    }
+    {
+      itens.map((item) => (
+        <span
+          class="flex items-center gap-3 px-6 text-xs text-muted-foreground whitespace-nowrap"
+          aria-hidden="true"
+        >
+          {item}
+          <span class="text-highlight">✦</span>
+        </span>
+      ))
+    }
+  </div>
+</div>

@@ -1,0 +1,370 @@
+---
+const palavras = ['Transformo', 'ideias', 'em']
+const palavrasDestaque = ['soluções', 'digitais.']
+const exemplos = [
+  { posicao: 'left', tema: 'light' },
+  { posicao: 'right', tema: 'color' },
+  { posicao: 'center', tema: 'dark' },
+]
+---
+
+<section
+  id="hero"
+  class="relative overflow-hidden flex flex-col items-center justify-center min-h-[calc(100svh-3.5rem)] md:min-h-[44rem] pt-14 pb-16"
+  aria-labelledby="hero-heading"
+>
+  <div class="absolute inset-0 bg-dot-grid pointer-events-none" aria-hidden="true"></div>
+  <div class="relative mx-auto w-full max-w-[1200px] px-6 text-center">
+    <span
+      class="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-xs text-muted-foreground"
+    >
+      💬 Conversa inicial sem compromisso
+    </span>
+    <h1
+      id="hero-heading"
+      class="mx-auto mt-6 max-w-[56rem] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-[-0.04em]"
+    >
+      {
+        palavras.map((palavra, i) => (
+          <span class="hero-word" style={`--d:${i * 90}ms`}>
+            {palavra}{' '}
+          </span>
+        ))
+      }
+      {
+        palavrasDestaque.map((palavra, i) => (
+          <span
+            class="hero-word text-muted-foreground"
+            style={`--d:${(palavras.length + i) * 90}ms`}
+          >
+            {palavra}{' '}
+          </span>
+        ))
+      }
+    </h1>
+    <p class="reveal mx-auto mt-6 max-w-xl text-sm sm:text-base leading-relaxed text-muted-foreground">
+      Sites e landing pages para profissionais e pequenos negócios que precisam
+      de uma presença online clara e honesta.
+    </p>
+    <div class="reveal mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a
+        href="#contato"
+        class="cta-ring inline-flex h-[52px] items-center justify-center rounded-lg px-6 text-sm sm:text-base font-semibold transition-transform bg-highlight text-highlight-foreground hover:scale-[1.03]"
+      >
+        Quero meu site 🚀
+      </a>
+      <a
+        href="#processo"
+        class="inline-flex h-[52px] items-center justify-center rounded-lg px-6 text-sm sm:text-base font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
+      >
+        Conhecer o processo ↘
+      </a>
+    </div>
+    <div
+      class="hero-previews relative mx-auto mt-16 md:mt-20 h-[15rem] sm:h-[18rem] md:h-[24rem] w-full max-w-[82rem]"
+      aria-hidden="true"
+    >
+      {
+        exemplos.map((exemplo) => (
+          <div
+            class={`hero-preview hero-preview--${exemplo.posicao} absolute left-1/2 top-0 aspect-[4/3] w-[min(18rem,60vw)] md:w-[22rem] lg:w-[26rem] overflow-hidden rounded-[20px] border-[6px] border-muted bg-card shadow-[0_1.25rem_3rem_rgba(0,0,0,0.45),0_0.25rem_0.75rem_rgba(0,0,0,0.25)]`}
+          >
+            {exemplo.tema === 'light' && (
+              <div class="flex h-full w-full flex-col text-left bg-[#FAFAF7] text-neutral-900">
+                <div class="flex items-center justify-between border-b border-neutral-200 px-4 py-2.5">
+                  <div class="flex items-center gap-2">
+                    <div class="h-4 w-4 rounded-[3px] bg-neutral-900"></div>
+                    <span class="text-[10px] font-semibold">Sua marca</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-[10px] text-neutral-500">
+                    <span>Início</span>
+                    <span>Serviços</span>
+                    <span>Contato</span>
+                  </div>
+                </div>
+                <div class="flex flex-1 flex-col px-4 pb-4 pt-4">
+                  <h2 class="max-w-[15rem] text-base font-semibold leading-tight tracking-tight">
+                    Título da página
+                  </h2>
+                  <p class="mt-1.5 max-w-[17rem] text-[10px] leading-relaxed text-neutral-500">
+                    Chamada principal em uma linha curta e direta.
+                  </p>
+                  <div class="mt-3 flex items-center gap-2">
+                    <span class="rounded-[4px] bg-neutral-900 px-2.5 py-1 text-[10px] font-medium text-white">
+                      Saiba mais
+                    </span>
+                    <span class="rounded-[4px] border border-neutral-300 px-2.5 py-1 text-[10px] text-neutral-600">
+                      Contato
+                    </span>
+                  </div>
+                  <div class="mt-auto grid grid-cols-3 gap-2">
+                    <div class="rounded-[6px] border border-neutral-200 bg-white p-2">
+                      <div class="h-6 w-full rounded-[3px] bg-neutral-100"></div>
+                      <p class="mt-1.5 text-[10px] font-medium">Serviço 1</p>
+                    </div>
+                    <div class="rounded-[6px] border border-neutral-200 bg-white p-2">
+                      <div class="h-6 w-full rounded-[3px] bg-neutral-100"></div>
+                      <p class="mt-1.5 text-[10px] font-medium">Serviço 2</p>
+                    </div>
+                    <div class="rounded-[6px] border border-neutral-200 bg-white p-2">
+                      <div class="h-6 w-full rounded-[3px] bg-neutral-100"></div>
+                      <p class="mt-1.5 text-[10px] font-medium">Serviço 3</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            {exemplo.tema === 'dark' && (
+              <div class="flex h-full w-full flex-col text-left bg-[#0A0A0A] text-neutral-100">
+                <div class="flex items-center justify-between border-b border-white/10 px-4 py-2.5">
+                  <div class="flex items-center gap-2">
+                    <div class="h-4 w-4 rounded-[3px] bg-neutral-100"></div>
+                    <span class="text-[10px] font-semibold">Sua marca</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-[10px] text-neutral-400">
+                    <span>Início</span>
+                    <span>Serviços</span>
+                    <span>Contato</span>
+                  </div>
+                </div>
+                <div class="flex flex-1 flex-col px-4 pb-4 pt-4">
+                  <h2 class="max-w-[15rem] text-base font-semibold leading-tight tracking-tight">
+                    Título da página
+                  </h2>
+                  <p class="mt-1.5 max-w-[17rem] text-[10px] leading-relaxed text-neutral-400">
+                    Chamada principal em uma linha curta e direta.
+                  </p>
+                  <div class="mt-3 flex items-center gap-2">
+                    <span class="rounded-[4px] bg-highlight px-2.5 py-1 text-[10px] font-semibold text-highlight-foreground">
+                      Saiba mais
+                    </span>
+                    <span class="rounded-[4px] border border-white/15 px-2.5 py-1 text-[10px] text-neutral-300">
+                      Contato
+                    </span>
+                  </div>
+                  <div class="mt-auto grid grid-cols-3 gap-2">
+                    <div class="rounded-[6px] border border-white/10 bg-white/5 p-2">
+                      <div class="h-6 w-full rounded-[3px] bg-white/10"></div>
+                      <p class="mt-1.5 text-[10px] font-medium">Serviço 1</p>
+                    </div>
+                    <div class="rounded-[6px] border border-white/10 bg-white/5 p-2">
+                      <div class="h-6 w-full rounded-[3px] bg-white/10"></div>
+                      <p class="mt-1.5 text-[10px] font-medium">Serviço 2</p>
+                    </div>
+                    <div class="rounded-[6px] border border-white/10 bg-white/5 p-2">
+                      <div class="h-6 w-full rounded-[3px] bg-white/10"></div>
+                      <p class="mt-1.5 text-[10px] font-medium">Serviço 3</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            {exemplo.tema === 'color' && (
+              <div class="flex h-full w-full flex-col text-left bg-[#FF6B4A] text-[#1A1A1A]">
+                <div class="flex items-center justify-between px-4 py-2.5">
+                  <div class="flex items-center gap-2">
+                    <div class="h-4 w-4 rounded-[3px] bg-[#1A1A1A]"></div>
+                    <span class="text-[10px] font-semibold">Sua marca</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-[10px] font-medium">
+                    <span class="rounded-full bg-[#FFD23F] px-2 py-0.5">Início</span>
+                    <span>Serviços</span>
+                    <span>Contato</span>
+                  </div>
+                </div>
+                <div class="flex flex-1 flex-col px-4 pb-4 pt-2">
+                  <div class="flex items-start gap-3">
+                    <div class="flex-1">
+                      <h2 class="text-base font-bold leading-tight tracking-tight">
+                        Título da página
+                      </h2>
+                      <p class="mt-1.5 text-[10px] leading-relaxed">
+                        Chamada principal em uma linha curta e direta.
+                      </p>
+                      <span class="mt-2.5 inline-block rounded-[4px] bg-[#1A1A1A] px-2.5 py-1 text-[10px] font-semibold text-white">
+                        Saiba mais
+                      </span>
+                    </div>
+                    <div class="h-16 w-16 shrink-0 rounded-[8px] bg-[#FF3D8B]"></div>
+                  </div>
+                  <div class="mt-auto grid grid-cols-3 gap-2">
+                    <div class="rounded-[8px] bg-[#C6F432] p-2">
+                      <p class="text-[10px] font-semibold">Serviço 1</p>
+                      <div class="mt-1.5 h-5 w-full rounded-[3px] bg-[#1A1A1A]/15"></div>
+                    </div>
+                    <div class="rounded-[8px] bg-[#7DD3FC] p-2">
+                      <p class="text-[10px] font-semibold">Serviço 2</p>
+                      <div class="mt-1.5 h-5 w-full rounded-[3px] bg-[#1A1A1A]/15"></div>
+                    </div>
+                    <div class="rounded-[8px] bg-[#FFD23F] p-2">
+                      <p class="text-[10px] font-semibold">Serviço 3</p>
+                      <div class="mt-1.5 h-5 w-full rounded-[3px] bg-[#1A1A1A]/15"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+    <div class="mt-6 flex justify-center gap-2 md:hidden" role="group" aria-label="Exemplos de estilo">
+      {exemplos.map((exemplo, i) => (
+        <button type="button" data-hero-dot class="h-2 w-2 rounded-full bg-highlight opacity-30 transition-opacity" aria-label={`Ver exemplo ${i + 1}`}></button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-preview {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) rotate(var(--r)) scale(var(--s));
+    animation: hero-previews-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hero-previews {
+    touch-action: pan-y;
+  }
+
+  @media (hover: hover) and (min-width: 768px) {
+    .hero-preview:hover {
+      transform: translate(var(--tx), calc(var(--ty) - 1.5rem)) rotate(0deg) scale(1);
+      z-index: 10;
+    }
+  }
+
+  .hero-preview--center {
+    --tx: -50%;
+    --ty: -3.5rem;
+    --r: 0deg;
+    --s: 1;
+    z-index: 4;
+  }
+
+  .hero-preview--left {
+    --tx: calc(-50% - 18vw);
+    --ty: -2rem;
+    --r: -3deg;
+    --s: 0.92;
+    z-index: 1;
+  }
+
+  .hero-preview--right {
+    --tx: calc(-50% + 18vw);
+    --ty: -2rem;
+    --r: 3deg;
+    --s: 0.92;
+    z-index: 2;
+  }
+
+  @keyframes hero-previews-rise {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hero-preview--center {
+      --ty: -1rem;
+    }
+
+    .hero-preview--left {
+      --tx: calc(-50% - 9vw);
+      --ty: 0;
+      --s: 0.85;
+    }
+
+    .hero-preview--right {
+      --tx: calc(-50% + 9vw);
+      --ty: 0;
+      --s: 0.85;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-preview {
+      animation: none;
+      opacity: 1;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const POS = ['hero-preview--left', 'hero-preview--right', 'hero-preview--center']
+  const BASE = ['hero-preview--left', 'hero-preview--right', 'hero-preview--center']
+  const wrap = document.querySelector<HTMLElement>('.hero-previews')
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('.hero-preview'))
+  const dots = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-hero-dot]'))
+  const mobile = window.matchMedia('(max-width: 767px)')
+  let current = 2
+  let startX = 0
+  let startY = 0
+  let tracking = false
+
+  const place = (card: HTMLElement, pos: string) => {
+    card.classList.remove(...POS)
+    card.classList.add(pos)
+  }
+
+  const apply = () => {
+    cards.forEach((card, i) => {
+      if (!mobile.matches) {
+        place(card, BASE[i])
+        return
+      }
+      const offset = (i - current + 3) % 3
+      place(card, offset === 0 ? 'hero-preview--center' : offset === 1 ? 'hero-preview--left' : 'hero-preview--right')
+    })
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('opacity-100', i === current)
+      dot.classList.toggle('opacity-30', i !== current)
+    })
+  }
+
+  const show = (index: number) => {
+    current = index
+    apply()
+  }
+
+  wrap?.addEventListener('pointerdown', (e) => {
+    if (!mobile.matches || e.pointerType !== 'touch') return
+    startX = e.clientX
+    startY = e.clientY
+    tracking = true
+  })
+
+  wrap?.addEventListener('pointercancel', () => {
+    tracking = false
+  })
+
+  wrap?.addEventListener('pointerup', (e) => {
+    if (!tracking) return
+    tracking = false
+    const dx = e.clientX - startX
+    const dy = e.clientY - startY
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      show(dx < 0 ? (current + 2) % 3 : (current + 1) % 3)
+      return
+    }
+    const card = (e.target as HTMLElement).closest<HTMLElement>('.hero-preview')
+    const index = card ? cards.indexOf(card) : -1
+    if (index !== -1 && index !== current) show(index)
+  })
+
+  wrap?.addEventListener('click', (e) => {
+    if (!mobile.matches || (e as PointerEvent).pointerType === 'touch') return
+    const card = (e.target as HTMLElement).closest<HTMLElement>('.hero-preview')
+    const index = card ? cards.indexOf(card) : -1
+    if (index !== -1 && index !== current) show(index)
+  })
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => show(i))
+  })
+
+  mobile.addEventListener('change', apply)
+  apply()
+</script>

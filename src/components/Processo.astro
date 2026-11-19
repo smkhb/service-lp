@@ -1,0 +1,52 @@
+---
+const etapas = [
+  {
+    numero: '01',
+    emoji: '💬',
+    titulo: 'Conversa',
+    descricao:
+      'Entendo o que você precisa, quem é seu público e qual o objetivo da página. Sem formulários longos — uma conversa direta.',
+  },
+  {
+    numero: '02',
+    emoji: '🎨',
+    titulo: 'Direção',
+    descricao:
+      'Crio um rascunho visual para você aprovar antes de qualquer linha de código. Nada avança sem seu ok.',
+  },
+  {
+    numero: '03',
+    emoji: '🚀',
+    titulo: 'Construção',
+    descricao:
+      'Desenvolvo a página com código limpo, responsivo e acessível. Entrego com instruções básicas de publicação.',
+  },
+]
+---
+
+<section id="processo" class="py-20 md:py-28" aria-labelledby="processo-heading">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <h2 id="processo-heading" class="reveal text-2xl md:text-3xl font-bold tracking-tight">
+      Como funciona
+    </h2>
+    <p class="reveal mt-3 text-sm text-muted-foreground max-w-lg">
+      Um processo simples, sem surpresas.
+    </p>
+    <div class="reveal-stagger mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        etapas.map((e) => (
+          <div class="reveal rounded-lg border border-border/50 bg-card p-6 hover:border-border transition-colors">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs text-muted-foreground font-mono">{e.numero}</span>
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-highlight/10 text-2xl" aria-hidden="true">
+                {e.emoji}
+              </div>
+            </div>
+            <h3 class="text-base font-semibold mb-2">{e.titulo}</h3>
+            <p class="text-xs text-muted-foreground leading-relaxed">{e.descricao}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

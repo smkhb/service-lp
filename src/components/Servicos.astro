@@ -1,0 +1,60 @@
+---
+import CheckIcon from '@/components/CheckIcon.astro'
+
+const servicos = [
+  {
+    emoji: '🚀',
+    titulo: 'Landing Pages',
+    descricao:
+      'Páginas únicas focadas em apresentar seu trabalho ou serviço com clareza. Responsivas, leves e acessíveis.',
+    itens: [
+      'Design personalizado',
+      'Responsiva (mobile e desktop)',
+      'HTML semântico e acessível',
+      'Código limpo e documentado',
+    ],
+  },
+  {
+    emoji: '🏢',
+    titulo: 'Sites Institucionais',
+    descricao:
+      'Sites com múltiplas páginas para negócios que precisam de mais espaço para apresentar seus serviços.',
+    itens: [
+      'Múltiplas páginas',
+      'Navegação clara',
+      'Formulário de contato ou WhatsApp',
+      'Instruções de publicação',
+    ],
+  },
+]
+---
+
+<section id="servicos" class="py-20 md:py-28 bg-card" aria-labelledby="servicos-heading">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <h2 id="servicos-heading" class="reveal text-2xl md:text-3xl font-bold tracking-tight">
+      O que eu faço
+    </h2>
+    <p class="reveal mt-3 text-sm text-muted-foreground max-w-lg">
+      Dois formatos principais — ambos com o mesmo cuidado.
+    </p>
+    <div class="reveal-stagger mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+      {
+        servicos.map((s) => (
+          <div class="reveal rounded-lg border border-border/50 bg-background p-6 md:p-8 hover:border-border transition-colors">
+            <div class="text-3xl mb-4" aria-hidden="true">{s.emoji}</div>
+            <h3 class="text-lg font-semibold mb-3">{s.titulo}</h3>
+            <p class="text-xs text-muted-foreground leading-relaxed mb-5">{s.descricao}</p>
+            <ul class="space-y-2">
+              {s.itens.map((item) => (
+                <li class="flex items-start gap-2 text-xs text-muted-foreground">
+                  <CheckIcon />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
