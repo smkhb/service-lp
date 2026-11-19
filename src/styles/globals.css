@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-mono: 'JetBrains Mono Variable';
+
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 0 0% 94%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 0 0% 88%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 96%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 94%;
+
+    --highlight: 45 100% 62%;
+    --highlight-foreground: 0 0% 4%;
+
+    --radius: 0.5rem;
+    --radius-sm: calc(0.5rem - 4px);
+    --radius-lg: calc(0.5rem + 4px);
+    --radius-full: 9999px;
+  }
+
+  /* This LP is dark-only — no .dark block needed */
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-mono), ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scroll-reveal animation */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal.visible {
+  animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered children */
+.reveal-stagger > .reveal:nth-child(1).visible { animation-delay: 0ms; }
+.reveal-stagger > .reveal:nth-child(2).visible { animation-delay: 100ms; }
+.reveal-stagger > .reveal:nth-child(3).visible { animation-delay: 200ms; }
+.reveal-stagger > .reveal:nth-child(4).visible { animation-delay: 300ms; }
+.reveal-stagger > .reveal:nth-child(5).visible { animation-delay: 400ms; }
+.reveal-stagger > .reveal:nth-child(6).visible { animation-delay: 500ms; }
+
+/* Selection */
+::selection {
+  background-color: hsl(0 0% 94% / 0.2);
+  color: hsl(0 0% 96%);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(hsl(0 0% 100% / 0.09) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+
+.hero-word {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: word-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes word-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.cta-ring {
+  position: relative;
+}
+
+.cta-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 hsl(var(--highlight) / 0.5);
+  animation: ring 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ring {
+  to {
+    box-shadow: 0 0 0 14px hsl(var(--highlight) / 0);
+  }
+}
+
+.glow-float {
+  animation: float 9s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(24px, -18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .cta-ring::after,
+  .glow-float {
+    animation: none;
+  }
+}
