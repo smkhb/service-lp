@@ -1,9 +1,5 @@
 ---
-import { siteConfig } from '@/lib/site-config'
-
-const isPlaceholderEmail = siteConfig.SITE_EMAIL.includes('exemplo')
-const isPlaceholderWhatsApp = siteConfig.SITE_WHATSAPP.includes('00000')
-const whatsappUrl = `https://wa.me/${siteConfig.SITE_WHATSAPP.replace(/\D/g, '')}`
+import { siteConfig, whatsappLink } from '@/lib/site-config'
 ---
 
 <section id="contato" class="relative overflow-hidden py-20 md:py-28" aria-labelledby="contato-heading">
@@ -11,12 +7,11 @@ const whatsappUrl = `https://wa.me/${siteConfig.SITE_WHATSAPP.replace(/\D/g, '')
   <div class="relative mx-auto max-w-[1200px] px-6">
     <div class="reveal relative rounded-lg border border-border/50 bg-card p-8 md:p-12 max-w-2xl">
       <h2 id="contato-heading" class="text-2xl md:text-3xl font-bold tracking-tight">
-        Vamos conversar? 👋
+        Vamos tirar sua ideia do papel?
       </h2>
       <p class="mt-4 text-sm text-muted-foreground leading-relaxed">
-        Se você tem uma ideia ou precisa de uma página, entre em contato.
-        Sem compromisso — é só uma conversa inicial para entender o que
-        você precisa.
+        Precisa de um site, quer automatizar um processo ou melhorar uma solução existente?
+        Me conta o que você tem em mente e vamos conversar sobre o melhor caminho.
       </p>
 
       <div class="mt-8 space-y-4">
@@ -37,7 +32,7 @@ const whatsappUrl = `https://wa.me/${siteConfig.SITE_WHATSAPP.replace(/\D/g, '')
           <div>
             <span class="text-sm font-medium">WhatsApp</span>
             <p class="text-xs text-muted-foreground mt-1">
-              {isPlaceholderWhatsApp ? 'Número será adicionado em breve.' : siteConfig.SITE_WHATSAPP}
+              {siteConfig.whatsapp}
             </p>
           </div>
         </div>
@@ -60,24 +55,18 @@ const whatsappUrl = `https://wa.me/${siteConfig.SITE_WHATSAPP.replace(/\D/g, '')
           <div>
             <span class="text-sm font-medium">E-mail</span>
             <p class="text-xs text-muted-foreground mt-1">
-              {isPlaceholderEmail ? 'Endereço será adicionado em breve.' : siteConfig.SITE_EMAIL}
+              <a href={`mailto:${siteConfig.email}`} class="underline underline-offset-4 hover:text-foreground">{siteConfig.email}</a>
             </p>
           </div>
         </div>
       </div>
 
-      {
-        !isPlaceholderWhatsApp && (
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="cta-ring mt-8 inline-flex items-center justify-center px-6 py-3 rounded-md bg-highlight text-highlight-foreground font-semibold text-sm hover:scale-[1.03] transition-transform"
-          >
-            Conversar no WhatsApp 💬
-          </a>
-        )
-      }
+      <a
+        href={whatsappLink('contact')}
+        class="cta-ring mt-8 inline-flex items-center justify-center px-6 py-3 rounded-md bg-highlight text-highlight-foreground font-semibold text-sm hover:scale-[1.03] transition-transform"
+      >
+        Conversar no WhatsApp 💬
+      </a>
     </div>
   </div>
 </section>

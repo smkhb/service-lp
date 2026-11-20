@@ -1,5 +1,5 @@
 ---
-import { siteConfig } from '@/lib/site-config'
+import { siteConfig, whatsappLink } from '@/lib/site-config'
 
 const navLinks = [
   { label: 'Processo', href: '#processo' },
@@ -14,7 +14,7 @@ const navLinks = [
   role="navigation"
   aria-label="Navegação principal"
 >
-  <div class="mx-auto max-w-[1200px] px-6 flex items-center justify-between h-14">
+  <div class="mx-auto max-w-[1200px] px-6 flex items-center justify-between gap-2 h-14">
     <a
       href="#"
       class="text-sm font-semibold tracking-tight text-foreground hover:opacity-80 transition-opacity"
@@ -37,10 +37,10 @@ const navLinks = [
       }
     </ul>
     <a
-      href="#contato"
-      class="text-xs px-4 py-2 rounded-md bg-highlight text-highlight-foreground hover:opacity-90 transition-opacity font-semibold"
+      href={whatsappLink('contact')}
+      class="text-center text-[10px] sm:text-xs px-2 sm:px-4 py-2 rounded-md bg-highlight text-highlight-foreground hover:opacity-90 transition-opacity font-semibold"
     >
-      Quero meu site 🚀
+      Conversar sobre meu projeto
     </a>
   </div>
 </nav>

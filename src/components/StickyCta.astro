@@ -1,12 +1,16 @@
+---
+import { whatsappLink } from '@/lib/site-config'
+---
+
 <div
   id="sticky-cta"
   class="fixed inset-x-0 bottom-0 z-50 border-t border-border/50 bg-background/95 backdrop-blur-md p-3 md:hidden translate-y-full transition-transform duration-500"
 >
   <a
-    href="#contato"
+    href={whatsappLink('contact')}
     class="flex w-full items-center justify-center rounded-md bg-highlight text-highlight-foreground font-semibold text-sm py-3"
   >
-    Quero meu site 🚀
+    Conversar sobre meu projeto
   </a>
 </div>
 
