@@ -62,7 +62,7 @@ A identidade visual usa fundo escuro, amarelo como cor de destaque e a fonte Jet
 
 ## ☁️ Build para publicação
 
-Para publicar a versão estática na Cloudflare, use `npm run build` como comando de build e `dist/` como diretório de saída. Configure `SITE_URL=https://samb.fyi` no ambiente de produção para gerar a URL absoluta da imagem de compartilhamento.
+Para publicar a versão estática na Cloudflare, use `npm run build` como comando de build e `dist/` como diretório de saída. A imagem de compartilhamento usa `https://servicos.samb.fyi` por padrão. Se o endereço da landing page mudar, defina `SITE_URL` nas variáveis de build com o novo endereço.
 
 ## 📬 Contato
 
